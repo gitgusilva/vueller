@@ -1,5 +1,5 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import Badge from "./components/badge/Badge.vue";
+import Button from "./components/button/Button.vue";
+import Portal from "./components/portal/Portal.vue"
 
-createApp(App).mount('#app')
+export {Badge, Button, Portal};

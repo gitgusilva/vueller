@@ -1,20 +1,37 @@
 {
-  "name": "untitled",
-  "private": true,
-  "version": "0.0.0",
+  "name": "vueller",
+  "version": "1.0.0",
+  "description": "Components built with Vue.js",
+  "author": "Gustavo Silva <gug.contato@gmail.com>",
   "type": "module",
+  "main": "vueller.umd.js",
+  "module": "vueller.es.js",
+  "bugs": {
+    "url": "https://github.com/gitgusilva/vueller/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gitgusilva/vueller.git"
+  },
+  "directories": {
+    "src": "src/"
+  },
   "scripts": {
-    "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "postversion": "git push && git push --tags",
+    "version": "npm run build && git add -A dist"
   },
   "dependencies": {
-    "vue": "^3.4.19"
+    "vue": "^3.4.27"
   },
   "devDependencies": {
+    "@types/node": "^18.13.0",
     "@vitejs/plugin-vue": "^5.0.4",
+    "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.77.1",
+    "terser": "^5.31.0",
     "typescript": "^5.2.2",
-    "vite": "^5.1.4",
-    "vue-tsc": "^1.8.27"
+    "vite": "^5.2.0",
+    "vue-tsc": "^2.0.6"
   }
 }

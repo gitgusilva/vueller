@@ -1,4 +1,4 @@
-import { HintedString } from '../ts-helpers';
+import { HintedString } from '../../../types/helpers';
 
 export type PortalAppendToType = HintedString<'body' | 'self'> | undefined | HTMLElement;
 
