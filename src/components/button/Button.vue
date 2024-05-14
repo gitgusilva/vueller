@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import "./_ButtonStyle.scss";
   import {IButtonProps} from "./Button";
   import Badge from "../badge/Badge.vue";
 
@@ -17,3 +16,13 @@
     </slot>
   </button>
 </template>
+
+<style lang="scss" scoped>
+button {
+  display: inline-flex;
+}
+
+.right {
+  order: 1;
+}
+</style>
