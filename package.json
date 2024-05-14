@@ -4,8 +4,8 @@
   "description": "Components built with Vue.js",
   "author": "Gustavo Silva <gug.contato@gmail.com>",
   "type": "module",
-  "main": "vueller.umd.js",
-  "module": "vueller.es.js",
+  "main": "dist/vueller.umd.js",
+  "module": "dist/vueller.es.js",
   "bugs": {
     "url": "https://github.com/gitgusilva/vueller/issues"
   },
