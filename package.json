@@ -23,6 +23,7 @@
     "version": "npm run build && git add -A dist"
   },
   "dependencies": {
+    "rollup-plugin-postcss": "^4.0.2",
     "vue": "^3.4.27"
   },
   "devDependencies": {
