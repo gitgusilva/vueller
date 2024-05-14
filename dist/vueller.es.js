@@ -1,5 +1,5 @@
-import { defineComponent, openBlock, createElementBlock, normalizeClass, renderSlot, createTextVNode, toDisplayString, createCommentVNode, createElementVNode, createBlock, computed, Teleport } from "vue";
-const _sfc_main$2 = /* @__PURE__ */ defineComponent({
+import { defineComponent, openBlock, createElementBlock, normalizeClass, renderSlot, createTextVNode, toDisplayString, createCommentVNode, createElementVNode, createBlock, computed, Teleport, watch, onMounted } from "vue";
+const _sfc_main$3 = /* @__PURE__ */ defineComponent({
   __name: "Badge",
   props: {
     value: {},
@@ -21,13 +21,21 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
       }, [
         renderSlot(_ctx.$slots, "default", {}, () => [
           createTextVNode(toDisplayString(props.value), 1)
-        ])
+        ], true)
       ], 2);
     };
   }
 });
-const _hoisted_1 = ["disabled"];
-const _sfc_main$1 = /* @__PURE__ */ defineComponent({
+const _export_sfc = (sfc, props) => {
+  const target = sfc.__vccOpts || sfc;
+  for (const [key, val] of props) {
+    target[key] = val;
+  }
+  return target;
+};
+const Badge = /* @__PURE__ */ _export_sfc(_sfc_main$3, [["__scopeId", "data-v-d36a0556"]]);
+const _hoisted_1$1 = ["disabled"];
+const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   __name: "Button",
   props: {
     label: {},
@@ -56,18 +64,19 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
               key: 0,
               class: normalizeClass([props.icon, { "right": props.iconRight }])
             }, null, 2)) : createCommentVNode("", true)
-          ]),
+          ], true),
           createElementVNode("span", null, toDisplayString(props.label || " "), 1),
-          props.badge ? (openBlock(), createBlock(_sfc_main$2, {
+          props.badge ? (openBlock(), createBlock(Badge, {
             key: 0,
             value: props.badge
           }, null, 8, ["value"])) : createCommentVNode("", true)
-        ])
-      ], 8, _hoisted_1);
+        ], true)
+      ], 8, _hoisted_1$1);
     };
   }
 });
-const _sfc_main = /* @__PURE__ */ defineComponent({
+const Button = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-b977db5a"]]);
+const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __name: "Portal",
   props: {
     appendTo: { default: "default" },
@@ -86,9 +95,56 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
+const _hoisted_1 = {
+  class: "modal-dialog modal-dialog-centered large",
+  role: "document"
+};
+const _hoisted_2 = { class: "modal-content" };
+const _hoisted_3 = { class: "modal-header" };
+const _hoisted_4 = { class: "modal-body" };
+const _hoisted_5 = { class: "modal-footer" };
+const _sfc_main = /* @__PURE__ */ defineComponent({
+  __name: "Modal",
+  props: {
+    modelValue: {},
+    size: {}
+  },
+  setup(__props) {
+    const props = __props;
+    watch(props, () => document.body.classList.remove("modal-open"));
+    onMounted(() => document.body.classList.add("modal-open"));
+    return (_ctx, _cache) => {
+      return openBlock(), createBlock(Teleport, { to: "body" }, [
+        !!props.modelValue ? (openBlock(), createElementBlock("div", {
+          key: 0,
+          class: normalizeClass(["modal fade", { show: !!props.modelValue }]),
+          tabindex: "-1",
+          "aria-modal": "true",
+          role: "dialog"
+        }, [
+          createElementVNode("div", _hoisted_1, [
+            createElementVNode("div", _hoisted_2, [
+              createElementVNode("div", _hoisted_3, [
+                renderSlot(_ctx.$slots, "modal-header", {}, void 0, true)
+              ]),
+              createElementVNode("div", _hoisted_4, [
+                renderSlot(_ctx.$slots, "default", {}, void 0, true)
+              ]),
+              createElementVNode("div", _hoisted_5, [
+                renderSlot(_ctx.$slots, "modal-footer", {}, void 0, true)
+              ])
+            ])
+          ])
+        ], 2)) : createCommentVNode("", true)
+      ]);
+    };
+  }
+});
+const Modal = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-378b6f30"]]);
 export {
-  _sfc_main$2 as Badge,
-  _sfc_main$1 as Button,
-  _sfc_main as Portal
+  Badge,
+  Button,
+  Modal,
+  _sfc_main$1 as Portal
 };
 //# sourceMappingURL=vueller.es.js.map
