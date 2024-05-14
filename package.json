@@ -1,6 +1,6 @@
 {
   "name": "vueller",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Components built with Vue.js",
   "author": "Gustavo Silva <gug.contato@gmail.com>",
   "type": "module",
