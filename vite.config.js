@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { join } from 'path'
-import { terser } from 'rollup-plugin-terser'
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 
 export default defineConfig({
   plugins: [
     vue(),
+    cssInjectedByJsPlugin()
   ],
   build: {
     lib: {
@@ -20,7 +21,7 @@ export default defineConfig({
       output: {
         globals: {
           vue: 'Vue',
-        }
+        },
       }
     },
     // Configuração para minificar usando Terser
@@ -33,4 +34,4 @@ export default defineConfig({
     },
     sourcemap: true, // Gerar sourcemaps
   },
-})
+});
