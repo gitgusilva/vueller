@@ -6,6 +6,7 @@
   "type": "module",
   "main": "dist/vueller.umd.js",
   "module": "dist/vueller.es.js",
+  "style": "dist/style.css",
   "bugs": {
     "url": "https://github.com/gitgusilva/vueller/issues"
   },
