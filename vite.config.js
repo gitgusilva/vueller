@@ -1,23 +1,36 @@
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import { join } from 'path';
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import { join } from 'path'
+import { terser } from 'rollup-plugin-terser'
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+  ],
   build: {
     lib: {
-      entry: join(__dirname, 'src/main.ts'), // Caminho para o ponto de entrada do seu pacote
-      name: 'Vueller', // Nome do pacote
-      fileName: (format) => `vueller.${format}.js`, // Nome do arquivo de saída
-      formats: ['es', 'umd'], // Formatos de build
+      entry: join(__dirname, 'src/main.ts'), // Modifique conforme necessário
+      name: 'Vueller', // Modifique conforme necessário
+      fileName: (format) => `vueller.${format}.js`,
     },
+    emptyOutDir: true, // Limpar o diretório de saída antes de construir
+    outDir: 'dist', // Diretório de saída
     rollupOptions: {
-      // Certifique-se de incluir os estilos no arquivo JavaScript gerado
+      external: ['vue'], // Mova para dentro de `build.rollupOptions` se necessário
       output: {
-        assetFileNames: 'style.css', // Nome do arquivo de estilo
-      },
-      // Onde o Rollup deve começar a resolver dependências
-      input: join(__dirname, 'src/main.ts'),
+        globals: {
+          vue: 'Vue',
+        }
+      }
     },
+    // Configuração para minificar usando Terser
+    minify: 'terser',
+    // Configuração adicional para Terser
+    terserOptions: {
+      format: {
+        comments: false, // Remove comentários do arquivo minificado
+      },
+    },
+    sourcemap: true, // Gerar sourcemaps
   },
-});
+})
