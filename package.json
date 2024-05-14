@@ -7,6 +7,9 @@
   "main": "dist/vueller.umd.js",
   "module": "dist/vueller.es.js",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "bugs": {
     "url": "https://github.com/gitgusilva/vueller/issues"
   },
@@ -23,7 +26,6 @@
     "version": "npm run build && git add -A dist"
   },
   "dependencies": {
-    "rollup-plugin-terser": "^7.0.2",
     "vite-plugin-css-injected-by-js": "^3.5.1",
     "vue": "^3.4.27"
   },
