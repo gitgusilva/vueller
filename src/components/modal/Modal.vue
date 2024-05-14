@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-  import { IModalProps } from '@/components/modal/Modal'
+  import { IModalProps } from './Modal';
   import { onMounted, watch } from 'vue'
 
   // props
